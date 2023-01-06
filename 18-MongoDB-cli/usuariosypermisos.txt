@@ -1,0 +1,69 @@
+//EJEMPLO
+1-
+//Utiizo la base para gestionar privilegios de usuarios
+use admin
+
+2-
+//Creo el usuario root con su contraseña y le doy privilegios de root
+db.createUser({'user': 'root', 'pwd': 'rootpwd', 'roles': ['root']})
+
+3-
+//elimina el user que se llama root
+db.dropUser('root')
+
+//EJERCICIO
+1- 
+use admin
+
+2-
+//Crea el usuario 'lector' con password '123', y le dá permisos de lectura sobre la base empresa
+db.createUser(
+    {
+        user: 'lector', 
+        pwd: '123', 
+        roles: [
+            { role: 'read', db: 'empresa'}
+            ]
+    }
+)
+
+3-
+NOTA: para que los privilegios funcionen, se debe inicializar mongod --auth
+mongod --dbpath="rutaDeMiDB" --auth
+//Ingresar con el usuario lector
+mongosh -u lector
+mongosh -u lector -p 123
+
+//Al intentar cualquier operación de escritura nos deniega e indica que no tenemos privilegios.
+
+------------------
+
+EJERCICIO 1 (PDF)
+
+1-
+// Crear un usuario que acceda con nombre 'encargado' y clave 'qwerty123' sólo a la base 'empresa' y que tenga permisos de lectoescritura.
+
+NOTA: para crear los usuarios, debo correr mongod pero sin auth
+
+mongod --dbpath="rutaDeMiDB"
+
+use admin
+
+db.createUser(
+    {
+        user: 'encargado', 
+        pwd: 'qwerty123', 
+        roles: [
+            { role: 'readWrite', db: 'empresa'}
+            ]
+    }
+)
+
+2-
+// Acceder con ese usuario
+
+//vuelvo a iniciar mongod --dbpath="rutaDeMiDB" --auth
+mongod --dbpath="rutaDeMiDB" --auth 
+
+//Inicio mongosh con el usuario encargado
+mongosh -u encargado -p qwerty123
