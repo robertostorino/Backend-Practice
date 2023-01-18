@@ -1,0 +1,24 @@
+REDIS
+1- Lista info total de la bd
+keys *
+2- Crea 5 claves sin tiempo de expiración que contengan nombre de productos
+set producto1 mesa
+set producto2 alfombra
+set producto3 armario
+set producto4 perchero
+set producto5 lampara
+3- Lista toda la info
+keys *
+4- Muestra el contenido de cada una de las claves de productos
+get producto1
+get producto2
+get producto3
+get producto4
+get producto5
+5- Agregarun producto, fijando un tiempo de vida en 30 segundos
+set producto6 reloj EX 30
+6- Listar el nuevo producto y su tiempo de expiración
+get producto6
+ttl producto6
+7- Verificar que al transcurrir ese tiempo, el producto desaparezca del listado
+keys *
