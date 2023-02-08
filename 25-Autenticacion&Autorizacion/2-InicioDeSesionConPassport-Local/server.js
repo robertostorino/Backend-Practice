@@ -12,6 +12,7 @@ const usuarios = []
 // Para usar __dirname  //
 //----------------------//
 
+// Para poder guardar archivos sin problemas
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -43,6 +44,7 @@ passport.use('register', new LocalStrategy({
 
     // Done es el callback de verificacion. Como next
     // El 1º arg de Done: si hubo un error o no.
+    // El 2º arg: objeto
     done(null, newUser)
 }))
 
@@ -92,7 +94,7 @@ app.use(session({
 // Middleware de Passport //
 //-----------------------//
 //----------------------------------------------------//
-app.use(passport.initialize()); // A la app de express le defino qu evoy a utilizar passport
+app.use(passport.initialize()); // A la app de express le defino que voy a utilizar passport
 app.use(passport.session()) // Le defino la sesion de passport
 //----------------------------------------------------//
 
