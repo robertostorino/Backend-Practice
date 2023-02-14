@@ -54,6 +54,12 @@ const server = app.listen(PORT, err => {
     logger.info(`Servidor escuchando en el puerto: ${PORT}`)
 })
 
+// el evento err está definido en el servidor de express
 server.on('error', err => {
     logger.error(`Error en el servidor: ${err}`)
-})
+});
+
+
+// para probar el entorno producción, debo agregar la variable de entorno prod
+// En la consola ejecutar: export NODE_ENV=prod
+// para eliminar la variable de entorno: unset NODE_ENV
