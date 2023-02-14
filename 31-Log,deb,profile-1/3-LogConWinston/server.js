@@ -1,3 +1,22 @@
+/**
+ * 
+ * Crear los loggers respetando los niveles de log y las capas de transporte necesarias
+para cumplir con el enunciado.
+ * 
+ */
+
+/**
+ * 
+● Winston es una librería con soporte para múltiples transportes diseñada
+para el registro simple y universal.
+● Un transporte es esencialmente un dispositivo que nos permiten
+almacenar mensajes personalizados de seguimiento (al igual que
+console.log) en un archivo plano o desplegado por consola.
+● Cada logger de Winston puede tener múltiples transportes,
+configurados en diferentes niveles.
+ *
+ */
+
 import express from 'express'
 import logger from './logger.js'
 

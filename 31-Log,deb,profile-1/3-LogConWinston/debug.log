@@ -1,0 +1,4 @@
+{"level":"info","message":"Servidor escuchando en el puerto: 8080"}
+{"level":"warn","message":"Ruta GET / no esta implementada"}
+{"level":"error","message":"Parametros invalidos"}
+{"level":"warn","message":"Ruta GET /su no esta implementada"}
